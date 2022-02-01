@@ -1,0 +1,168 @@
+swagger: "2.0"
+info:
+  title: Gateway Api Documentaion
+  description: This is a Gateway Api Documentaion for all the routes for different services. Created by MNP 
+  version: 1.0
+  contact:
+    email: test123@gmail.com
+  liscence:
+    name: Apache 2.0
+    url: "http://apache.org/"
+  servers:
+    -url: "http://localhost:4001"
+    description: This is microservice 1
+
+paths:
+
+# this get all the service objects
+  /{serviceName}/{service}:
+    get:
+      summary: Get all rquest service Objects.
+      description: This will give a promise of ResponseDto.
+      parameters:
+        - in: path
+          name: serviceName
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: service
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Succeed to call the microservice and get ResponseDto. 
+          schema:
+            type: object
+        400:
+          description: Failed to call microservice.
+          schema:
+            type: object
+
+
+# this will post a data into service
+    post:
+      summary: Post request body to gateway.
+      description: This will post requested body into gateway then ResponseDto.
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: serviceName
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: service
+          schema:
+            type: string
+        - in: body
+          name: Object
+          schema:
+            type: object
+      responses:
+        200:
+          description: Succeed to emit data into channel then creating ResponseDto. 
+          schema:
+            type: object
+        400:
+          description: Failed to emit to channel then creating ResponseDto.
+          schema:
+            type: object
+
+# this is will get object with id from service 
+  /{serviceName}/{service}/{id}:
+    get:
+      summary: Get rquest service Object with Id.
+      description: This will give a promise of ResponseDto.
+      parameters:
+        - in: path
+          name: serviceName
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: service
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: number
+      responses:
+        200:
+          description: Succeed to call the microservice and get ResponseDto. 
+          schema:
+            type: object
+        400:
+          description: Failed to call microservice.
+          schema:
+            type: object
+
+# this will update a service object with id
+    put:
+      summary: Put request body to gateway.
+      description: This will put object body into gateway then ResponseDto.
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: service
+          schema:
+            type: string
+        - in: path
+          name: id
+          schema:
+            type: number
+        - in: body
+          name: Object
+          schema:
+            type: object
+      responses:
+        200:
+          description: Succeed to emit data into channel then creating ResponseDto. 
+          schema:
+            type: object
+        400:
+          description: Failed to emit to channel then creating ResponseDto.
+          schema:
+            type: object
+
+
+# this will delete a service object with id
+    delete:
+      summary: delete request to gateway.
+      description: This will delte object id into gateway then ResponseDto.
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: service
+          schema:
+            type: string
+        - in: path
+          name: id
+          schema:
+            type: number
+        - in: body
+          name: Object
+          schema:
+            type: object
+      responses:
+        200:
+          description: Succeed to emit data into channel then creating ResponseDto. 
+          schema:
+            type: object
+        400:
+          description: Failed to emit to channel then creating ResponseDto.
+          schema:
+            type: object
