@@ -1,0 +1,6 @@
+[submodule "submodules/ex3-ms-dtos"]
+	path = submodules/ex3-ms-dtos
+	url = https://github.com/darkmnpbox/ex3-ms-dtos.git
+[submodule "submodules/rabbitmq-broker"]
+	path = submodules/rabbitmq-broker
+	url = https://github.com/darkmnpbox/rabbitmq-broker.git
