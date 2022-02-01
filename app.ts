@@ -12,7 +12,7 @@ import RequestBodyDto from './submodules/ex3-ms-dtos/requestBody.dto';
 
 require('dotenv').config();
 const microserviceBaseUrl: string = process.env.MICROSERVICE_BASE_URL || `http://localhost:4001`;
-const port: number = process.env.PORT ? parseInt(process.env.PORT) || 4002;
+const port: number = process.env.PORT ? parseInt(process.env.PORT) : 4002;
 
 // load apiswagger configuration
 const swaggerJsDocs = YAML.load('./api.yaml');
